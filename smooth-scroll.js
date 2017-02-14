@@ -89,6 +89,15 @@
   };
 
   // export the function
-  window.smoothScroll = registerTargets;
+  window.smoothScroll = {
+    registerTargets:  registerTargets
+  , scrollTo: function(targetElm) {
+      stepScroll( getCurrentScroll(), getTargetOffsetFromTop(targetElm), moveFrequency);
+    }
+  , scrollBy: function(px) {
+      var cs = getCurrentScroll();
+      stepScroll(cs, cs + px, moveFrequency);
+    }
+  };
 
 })(window);

@@ -3,10 +3,12 @@ smooth-scroll
 
 smooth scrolling anchors page without framework dependency.
 
-This is a fork of https://github.com/Yappli/smooth-scroll, modifying it's behaviour in the following ways:
+This is a fork of https://github.com/uniphil/smooth-scroll which is in turn a fork of https://github.com/Yappli/smooth-scroll with the following features:
 
- * the scroll is eased instead of linear
- * a function, `smoothScroll("querySelectorExpr")`, is exported to the global namespace. You must manually assign elements as targets for smooth scrolling.
+ * eased (not linear) scroll
+ * a function, `smoothScroll.registerTargets("querySelectorExpr")`, is exported to the global namespace. You must manually assign elements as targets for smooth scrolling.
+ * scroll to a specific element: `smoothScroll.scrollTo( document.getElementById("foo") )`
+ * scroll by 400px: `smoothScroll.scrollBy(400)`
 
 Example:
 
@@ -26,7 +28,7 @@ Example:
 ```
 
 ```javascript
-smoothScroll("#videos, #photos");
+smoothScroll.registerTargets("#videos, #photos");
 ```
 
 ta-daa
